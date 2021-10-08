@@ -14,7 +14,7 @@ interface HeroProps {
   templatesCount?: number;
 }
 
-export const Hero = ({ children }: any) => {
+export const Hero = ({ children, animate }: any) => {
   const isDesktop = useBreakpointValue({ base: false, md: true });
   return (
     <Box
@@ -62,7 +62,7 @@ export const Hero = ({ children }: any) => {
             </Text>
           </Stack>
         </Stack>
-        <FlipCoin />
+        <FlipCoin animate={animate} />
       </Stack>
     </Box>
   );

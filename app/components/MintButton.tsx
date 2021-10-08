@@ -1,14 +1,17 @@
 import { Button } from "@chakra-ui/react";
 import { GiCoinflip } from "react-icons/gi";
 
-const MintButton = ({ onClick }: any) => (
+const MintButton = ({ onClick, ...rest }: any) => (
   <Button
+    {...rest}
+    loadingText="Mining ..."
     size="lg"
     leftIcon={<GiCoinflip />}
     color="white"
     fontWeight="bold"
     borderRadius="md"
-    onClick={onClick}
+    onClick={() => onClick()}
+    spinnerPlacement="start"
     bgGradient="linear(to-r, teal.500, green.500)"
     _hover={{
       bgGradient: "linear(to-r, red.500, yellow.500)",

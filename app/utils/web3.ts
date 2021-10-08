@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import SupacoinNFT from "./SupacoinNFT.json";
-const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 
 declare global {
   interface Window {
@@ -23,7 +23,7 @@ const getConnectedContract = () => {
 
 export const mintNFT = () => {
   const supacoinContract = getConnectedContract();
-  return supacoinContract.mind();
+  return supacoinContract.mint();
 };
 
 export const getCurrentNetWork = () => {

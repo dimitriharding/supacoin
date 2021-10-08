@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <>
       <SEO />
-      <Hero>
+      <Hero animate={loading}>
         <Stack
           direction={{ base: "column", sm: "row" }}
           mb={{ base: 2, md: 4 }}
@@ -60,15 +60,16 @@ const Home = () => {
             />
           ) : (
             <MintButton
+              isLoading={loading === true}
               onClick={() => {
                 setLoading(true);
                 mintNFT()
-                  .then((response) => {
-                    console.log({ response });
+                  .then(async (response) => {
+                    await response.wait();
                     setLoading(false);
                   })
                   .catch((error) => {
-                    console.log({ response });
+                    console.log({ error });
                     setLoading(false);
                   });
               }}
