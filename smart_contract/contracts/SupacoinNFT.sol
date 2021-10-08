@@ -19,7 +19,7 @@ contract SupacoinNFT is ERC721URIStorage, Ownable, RandomlyAssigned {
     string memory symbol,
     string memory _tempURI,
     uint256 maxTokens
-  ) ERC721(name, symbol) RandomlyAssigned(maxTokens,1) {
+  ) ERC721(name, symbol) RandomlyAssigned(maxTokens,1) payable {
     tempURI = _tempURI; // set internal base uri
 
     for (uint256 a = 1; a <= 5; a++) {

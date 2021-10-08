@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "script:local": "hardhat run ./scripts/run.js",
+    "script:local": "hardhat run ./scripts/run.js --network polygon",
     "script:deploy": "hardhat run ./scripts/deploy.js"
   },
   "author": "Dimitri Harding",

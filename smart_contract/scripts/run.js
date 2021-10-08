@@ -1,10 +1,13 @@
 const main = async () => {
   const nftContractFactory = await hre.ethers.getContractFactory("SupacoinNFT");
   const nftContract = await nftContractFactory.deploy(
-    "Supacoin",
-    "SC",
-    "http://localhost:3000/api/token/",
-    300
+    "Supacoin Test",
+    "SCtestNFT",
+    "https://supacoin.vercel.app/api/token-test/",
+    300,
+    {
+      value: hre.ethers.utils.parseEther("0.001"),
+    }
   );
   await nftContract.deployed();
   console.log("Contract deployed to:", nftContract.address);
