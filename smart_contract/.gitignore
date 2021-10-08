@@ -1,0 +1,9 @@
+node_modules
+.env
+
+#Hardhat files
+cache
+artifacts
+
+app/node_modules
+app/.env
