@@ -9,6 +9,8 @@ import {
   Icon,
   useColorMode,
   Heading,
+  Tag,
+  TagLabel,
 } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { IoMoon, IoSunny } from "react-icons/io5";
@@ -83,6 +85,15 @@ export const Header = () => {
                 >
                   supacoin
                 </Heading>
+                {process.env.NEXT_PUBLIC_APP_MODE === "test" ? (
+                  <Tag size="sm" colorScheme="yellow" borderRadius="full">
+                    <TagLabel> Test Mode</TagLabel>
+                  </Tag>
+                ) : (
+                  <Tag size="sm" colorScheme="teal" borderRadius="full">
+                    <TagLabel> Live </TagLabel>
+                  </Tag>
+                )}
               </Stack>
             </Link>
           </Flex>

@@ -1,6 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 const storeUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(".co", ".in");
-const bucketName = process.env.SUPABASE_BUCKET;
+const bucketName =
+  process.env.NEXT_PUBLIC_APP_MODE === "live"
+    ? process.env.SUPABASE_BUCKET
+    : process.env.SUPABASE_BUCKET_TEST;
 const storeBaseUrl = `${storeUrl}/storage/v1/object/public/${bucketName}/images`;
 
 const supabase = createClient(
