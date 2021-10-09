@@ -20,6 +20,6 @@
       "@/layout/*": ["layout/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/auth.js"],
   "exclude": ["node_modules"]
 }

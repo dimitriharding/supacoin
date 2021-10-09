@@ -13,16 +13,16 @@ import {
 import { useNotification } from "../utils/feedback";
 import ConnectButton from "../components/ConnectButton";
 import MintButton from "../components/MintButton";
+import { useWeb3 } from "../utils/web3Context";
 
 const Home = () => {
+  const { setAccount, account } = useWeb3();
   const { notify } = useNotification();
   const [loading, setLoading] = React.useState(false);
-  const [connectedWalletDetails, setConnectedWalletDetails] =
-    React.useState(null);
   React.useEffect(async () => {
     const { data, error } = await checkIfWalletIsConnectedAndGetAccount();
     if (data) {
-      setConnectedWalletDetails(data);
+      setAccount(data.account);
     }
 
     if (error) {
@@ -40,12 +40,12 @@ const Home = () => {
           spacing={2}
           justifyContent={{ sm: "left", md: "center" }}
         >
-          {!connectedWalletDetails ? (
+          {!account ? (
             <ConnectButton
               onClick={async () => {
                 const { data, error } = await connectWallet();
                 if (data) {
-                  setConnectedWalletDetails(data);
+                  setAccount(data.account);
                 }
 
                 if (error) {

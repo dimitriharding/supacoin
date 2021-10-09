@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-const getConnectedContract = () => {
+export const getConnectedContract = () => {
   const { ethereum } = window;
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
@@ -26,16 +26,9 @@ export const mintNFT = () => {
   return supacoinContract.mint();
 };
 
-export const getCurrentNetWork = () => {
-  const { ethereum } = window;
-  const networkVersion = ethereum.networkVersion;
-  return networkVersion;
-};
-
 export const checkIfWalletIsConnectedAndGetAccount = async () => {
   const { ethereum } = window;
   if (!ethereum) {
-    console.log("Make sure you have metamask!");
     return {
       data: null,
       error: {
@@ -56,12 +49,10 @@ export const checkIfWalletIsConnectedAndGetAccount = async () => {
       // Setup listener! This is for the case where a user comes to our site
       // and ALREADY had their wallet connected + authorized.
       setupEventListener();
-      const currentNetwork = getCurrentNetWork();
       return {
         error: null,
         data: {
           account,
-          currentNetwork,
         },
       };
     } else {
@@ -101,8 +92,6 @@ export const connectWallet = async () => {
      */
     const account = accounts[0];
 
-    const currentNetwork = getCurrentNetWork();
-
     // Setup listener! This is for the case where a user comes to our site
     // and connected their wallet for the first time.
     setupEventListener();
@@ -110,7 +99,6 @@ export const connectWallet = async () => {
       error: null,
       data: {
         account,
-        currentNetwork,
       },
     };
   } catch (error) {

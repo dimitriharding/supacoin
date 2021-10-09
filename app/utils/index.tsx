@@ -1,3 +1,7 @@
+import { createAvatar } from "@dicebear/avatars";
+import * as style from "@dicebear/avatars-identicon-sprites";
+import svgToMiniDataURI from "mini-svg-data-uri";
+
 type Request = {
   path: string;
   method?: string;
@@ -28,4 +32,12 @@ export const getNFTs = async () => {
   } catch (error) {
     return [];
   }
+};
+
+export const getAccountIcon = (account: string) => {
+  const svg = createAvatar(style, {
+    seed: account,
+    background: "#FFF",
+  });
+  return svgToMiniDataURI(svg);
 };
