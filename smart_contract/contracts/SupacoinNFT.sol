@@ -30,16 +30,10 @@ contract SupacoinNFT is ERC721URIStorage, Ownable, RandomlyAssigned {
   event NewSupacoinNFTMinted(address sender, uint256 tokenId);
 
   function mint() public payable {
-    // check if the user have enough money to mint
-    uint256 mintCost = 0.000028 ether; // mint cost is 1/.99 US
 
     require( tokenCount() + 1 <= totalSupply(), "YOU CAN'T MINT MORE THAN MAXIMUM SUPPLY");
     require( availableTokenCount() - 1 >= 0, "YOU CAN'T MINT MORE THAN AVALABLE TOKEN COUNT"); 
     require( tx.origin == msg.sender, "CANNOT MINT THROUGH A CUSTOM CONTRACT");
-
-     if (msg.sender != owner()) { 
-        require( msg.sender.balance>= mintCost, "Insufficient Founds");
-      }
 
     uint256 id = nextToken();
 
