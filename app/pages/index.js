@@ -68,10 +68,20 @@ const Home = () => {
                 mintNFT()
                   .then(async (response) => {
                     await response.wait();
+                    notify({
+                      title: "Your Supacoin was successfully minted!",
+                      description: "",
+                      status: "success",
+                    });
                     setLoading(false);
                   })
                   .catch((error) => {
                     console.log({ error });
+                    notify({
+                      title: "Could not mint your supacoin!",
+                      description: error.message,
+                      status: "error",
+                    });
                     setLoading(false);
                   });
               }}

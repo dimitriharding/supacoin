@@ -13,6 +13,7 @@ export const useNotification = () => {
       title,
       description,
       status,
+      position: "top",
       duration: 9000,
       isClosable: true,
     });
