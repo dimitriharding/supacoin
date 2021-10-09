@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Image, Box, keyframes } from "@chakra-ui/react";
 
 const rotateHead = keyframes`
@@ -48,7 +48,11 @@ const FlipCoin = ({ animate }: any) => {
             zIndex: 2,
           }}
         >
-          <Image boxSize="450px" alt="Supacoin Logo" src="/supacoin-logo.png" />
+          <Image
+            boxSize={["350px", "450px"]}
+            alt="Supacoin Logo"
+            src="/supacoin-logo.png"
+          />
         </Box>
         <Box
           animation={tailAnimation}
@@ -64,7 +68,7 @@ const FlipCoin = ({ animate }: any) => {
           }}
         >
           <Image
-            boxSize="450px"
+            boxSize={["350px", "450px"]}
             alt="Supacoin Logo"
             src="/supacoin-logo-back.png"
           />
