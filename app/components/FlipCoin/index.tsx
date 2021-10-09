@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Image, Box, keyframes } from "@chakra-ui/react";
 
-const rotate = keyframes`
-  0% {
-    transform: rotate3d(0, 1, 0, 0deg);
-  }
-  50% {
-    transform: rotate3d(0, 1, 0, 180deg);
-  }
-  100% {
-    transform: rotate3d(0, 1, 0, 360deg);
-  }
+const rotateHead = keyframes`
+  0%, 100% { transform: rotate3d(0, 1, 0, 0deg); }
+  50% { transform: rotate3d(0, 1, 0, 180deg) }
+`;
+
+const rotateTail = keyframes`
+  0%, 100% { transform: rotate3d(0, 1, 0, 180deg); }
+  50% { transform: rotate3d(0, 1, 0, 0deg); }
 `;
 
 const FlipCoin = ({ animate }: any) => {
-  const coinAnimation = animate ? `${rotate} infinite 1s linear` : "";
+  const headAnimation = animate
+    ? `${rotateHead} 1s linear infinite alternate`
+    : "";
+  const tailAnimation = animate
+    ? `${rotateTail} 1s linear infinite alternate`
+    : "";
   return (
     <Box
       css={{
@@ -23,7 +26,6 @@ const FlipCoin = ({ animate }: any) => {
       }}
     >
       <Box
-        animation={coinAnimation}
         css={{
           position: "relative",
           width: "450px",
@@ -33,6 +35,8 @@ const FlipCoin = ({ animate }: any) => {
         }}
       >
         <Box
+          animation={headAnimation}
+          boxShadow="lg"
           css={{
             position: "absolute",
             top: 0,
@@ -42,12 +46,12 @@ const FlipCoin = ({ animate }: any) => {
             borderRadius: "50%",
             backfaceVisibility: "hidden",
             zIndex: 2,
-            transform: "rotateY(0deg)",
           }}
         >
           <Image boxSize="450px" alt="Supacoin Logo" src="/supacoin-logo.png" />
         </Box>
         <Box
+          animation={tailAnimation}
           css={{
             position: "absolute",
             top: 0,
@@ -57,7 +61,6 @@ const FlipCoin = ({ animate }: any) => {
             borderRadius: "50%",
             backfaceVisibility: "hidden",
             zIndex: 1,
-            transform: "rotateY(180deg)",
           }}
         >
           <Image
