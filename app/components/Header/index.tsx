@@ -41,7 +41,7 @@ export const Header = () => {
 
   React.useEffect(() => {
     if (process.env.NEXT_PUBLIC_APP_MODE === "test") {
-      if (network?.chainId !== 80001) {
+      if (account && network?.chainId !== 80001) {
         setMessage(
           `Please connect to the Matic Mumbai testnet. You are currently on ${network?.name}.`
         );
@@ -51,7 +51,7 @@ export const Header = () => {
         setMessage("");
       }
     } else {
-      if (network?.chainId !== 137) {
+      if (account && network?.chainId !== 137) {
         setMessage(
           `Please connect to the Polygon network. You are currently on ${network?.name}.`
         );
