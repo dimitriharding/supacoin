@@ -6,7 +6,7 @@ const MintButton = ({ onClick, ...rest }: any) => (
     {...rest}
     loadingText="Mining ..."
     size="lg"
-    leftIcon={<GiCoinflip />}
+    rightIcon={<GiCoinflip />}
     color="white"
     fontWeight="bold"
     borderRadius="md"

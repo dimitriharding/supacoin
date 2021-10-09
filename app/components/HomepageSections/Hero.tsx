@@ -9,10 +9,6 @@ import {
 } from "@chakra-ui/react";
 import { TextUnderline } from "../../components/TextUnderline";
 import FlipCoin from "../FlipCoin";
-interface HeroProps {
-  categoriesCount: number;
-  templatesCount?: number;
-}
 
 export const Hero = ({ children, animate }: any) => {
   const isDesktop = useBreakpointValue({ base: false, md: true });
