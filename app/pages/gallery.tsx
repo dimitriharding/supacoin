@@ -4,8 +4,10 @@ import PhotoGallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { getNFTs } from "../utils/index";
 import PageTitle from "../components/PageTitle";
+import { useWeb3 } from "../utils/web3Context";
 
 function Gallery() {
+  const { checkIfWalletIsConnected } = useWeb3();
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const [photos, setPhotos] = useState([]);
@@ -22,6 +24,7 @@ function Gallery() {
 
   useEffect(() => {
     (async () => {
+      await checkIfWalletIsConnected();
       const nfts = await getNFTs();
       setPhotos(nfts);
     })();
