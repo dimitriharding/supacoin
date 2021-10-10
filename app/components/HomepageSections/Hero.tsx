@@ -6,11 +6,13 @@ import {
   Box,
   useColorModeValue,
   useBreakpointValue,
+  Link,
 } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { TextUnderline } from "../../components/TextUnderline";
 import FlipCoin from "../FlipCoin";
 
-export const Hero = ({ children, animate }: any) => {
+export const Hero = ({ children, animate, mintedTokenLink }: any) => {
   const isDesktop = useBreakpointValue({ base: false, md: true });
   return (
     <Box
@@ -58,7 +60,14 @@ export const Hero = ({ children, animate }: any) => {
             </Text>
           </Stack>
         </Stack>
-        <FlipCoin animate={animate} />
+        <Stack align="center">
+          {mintedTokenLink && (
+            <Link href={mintedTokenLink} isExternal>
+              View your Supacoin on Opensea <ExternalLinkIcon mx="2px" />
+            </Link>
+          )}
+          <FlipCoin animate={animate} />
+        </Stack>
       </Stack>
     </Box>
   );
