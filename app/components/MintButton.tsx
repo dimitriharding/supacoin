@@ -9,7 +9,7 @@ const MintButton = ({ onClick, ...rest }: any) => (
     rightIcon={<GiCoinflip />}
     color="white"
     fontWeight="bold"
-    borderRadius="md"
+    borderRadius="full"
     onClick={() => onClick()}
     spinnerPlacement="start"
     bgGradient="linear(to-r, teal.500, green.500)"

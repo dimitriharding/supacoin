@@ -16,8 +16,8 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
   Button,
+  useBreakpointValue,
   Avatar,
 } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
@@ -28,15 +28,19 @@ import { Logo } from "../../components/Logo";
 import { MobileNav } from "../../components/Header/MobileNav";
 import { DesktopNav } from "../../components/Header/DesktopNav";
 import { useWeb3 } from "../../utils/web3Context";
-import { getAccountIcon } from "../../utils";
+import { useNotification } from "../../utils/feedback";
 
 import Banner from "../Banner";
 import AddressButton from "./AddressButton";
+import ConnectButton from "./ConnectButton";
+import { getAccountIcon } from "../../utils";
 
 export const Header = () => {
   const { isOpen: isMobileNavOpen, onToggle } = useDisclosure();
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const { colorMode, toggleColorMode } = useColorMode();
-  const { network, account, switchAccount } = useWeb3();
+  const { network, account, switchAccount, connectWallet } = useWeb3();
+  const { notify } = useNotification();
   const [showBanner, setShowBanner] = React.useState(false);
   const [message, setMessage] = React.useState("");
 
@@ -164,7 +168,7 @@ export const Header = () => {
                     )
                   }
                 />
-                {account && (
+                {account ? (
                   <Menu>
                     <MenuButton
                       as={Button}
@@ -173,8 +177,11 @@ export const Header = () => {
                       cursor={"pointer"}
                       minW={0}
                     >
-                      {/* <Avatar size={"sm"} src={getAccountIcon(account)} /> */}
-                      <AddressButton address={account} />
+                      {isMobile ? (
+                        <Avatar size={"sm"} src={getAccountIcon(account)} />
+                      ) : (
+                        <AddressButton address={account} />
+                      )}
                     </MenuButton>
                     <MenuList>
                       <MenuItem
@@ -186,6 +193,24 @@ export const Header = () => {
                       </MenuItem>
                     </MenuList>
                   </Menu>
+                ) : (
+                  <>
+                    {!isMobile ? (
+                      <ConnectButton
+                        onClick={async () => {
+                          const { error } = await connectWallet();
+
+                          if (error) {
+                            notify({
+                              title: "Get a Metamask Wallet",
+                              description: error.message,
+                              status: "error",
+                            });
+                          }
+                        }}
+                      />
+                    ) : null}
+                  </>
                 )}
               </Stack>
             </Container>

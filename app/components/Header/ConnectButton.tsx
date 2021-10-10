@@ -1,13 +1,13 @@
 import { Button, useColorModeValue } from "@chakra-ui/react";
-import MetaMaskIcon from "./MetaMaskIcon";
+import MetaMaskIcon from "../MetaMaskIcon";
 
 const ConnectButton = ({ onClick }: any) => {
   const color = useColorModeValue("gray.700", "white");
   return (
     <Button
-      size="lg"
-      bg="whiteAlpha.400"
+      size={"sm"}
       leftIcon={<MetaMaskIcon />}
+      bg="whiteAlpha.400"
       color={color}
       fontWeight="bold"
       borderRadius="full"
