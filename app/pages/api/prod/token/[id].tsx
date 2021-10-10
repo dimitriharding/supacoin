@@ -1,14 +1,13 @@
 import { NextApiResponse, NextApiRequest } from "next";
-import { getMetadata } from "../../_db";
+import { getMetadataFromTable } from "../../_db";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = req.query;
-  // download json from supabase storage
-  const { data: blog, error } = await getMetadata(id as string);
+  // read metadata from table
+  const { data: metaData, error } = await getMetadataFromTable(id as string);
 
-  if (blog) {
-    // convert Blog response to actual JSON that we can send in response
-    const data = JSON.parse(await blog.text());
+  if (metaData) {
+    const [data] = metaData;
     res.status(200).json(data);
   }
 

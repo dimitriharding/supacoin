@@ -37,3 +37,19 @@ export const getMetadata = (id: string) => {
     .from(bucketName as string)
     .download(`json/${id}.json`);
 };
+
+export const getMetadataFromTable = (id: string) => {
+  return supabase
+    .from(process.env.METADATA_TABLE_NAME as string)
+    .select(
+      `dna, 
+      name, 
+      description, 
+      image, 
+      edition, 
+      date, 
+      attributes, 
+      compiler`
+    )
+    .eq("edition", id);
+};
