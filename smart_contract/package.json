@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "script:local": "hardhat run ./scripts/run.js --network polygon",
-    "script:deploy": "hardhat run ./scripts/deploy.js"
+    "script:deploy": "hardhat run ./scripts/deploy.js --network polygon"
   },
   "author": "Dimitri Harding",
   "license": "ISC",
