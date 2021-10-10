@@ -9,7 +9,10 @@ const main = async () => {
     NFT_COLLECTION_NAME,
     NFT_COLLECTION_SYMBOL,
     TOKEN_BASE_URI,
-    parseInt(GENERATED_TOKENS_COUNT) // convert to int since it was read as a string
+    parseInt(GENERATED_TOKENS_COUNT), // convert to int since it was read as a string
+    {
+      value: hre.ethers.utils.parseEther("0.001"),
+    }
   );
   await nftContract.deployed();
   console.log("Contract deployed to:", nftContract.address);
