@@ -25,12 +25,14 @@ export const NAV_ITEMS: Array<NavItem> = [
         label: "Add Polygon to Metamask",
         href: `${gitRepoUrl}/guides/add_polygon_network_to_metamask.md`,
         subLabel: "Learn how to easily add the Polygon network to your wallet.",
+        isExternal: true,
       },
       {
         label: "Get Matic in Wallet",
         href: `${gitRepoUrl}/guides/get_matic`,
         subLabel:
           "Learn how to get matic in your wallet so you can start minting.",
+        isExternal: true,
       },
     ],
   },
