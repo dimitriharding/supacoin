@@ -62,3 +62,5 @@ export const truncateAddress = (
     fullStr.substr(fullStr.length - backChars)
   );
 };
+
+export const isTestMode = process.env.NEXT_PUBLIC_APP_MODE === "test";

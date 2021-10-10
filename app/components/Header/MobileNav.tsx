@@ -47,7 +47,7 @@ export const MobileNav = ({ isOpen }: MobileNavProps) => {
   );
 };
 
-const MobileNavItem = ({ href, children, label }: NavItem) => {
+const MobileNavItem = ({ href, children, label, isExternal }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   const handleToggle = (e: SyntheticEvent) => {
@@ -63,6 +63,7 @@ const MobileNavItem = ({ href, children, label }: NavItem) => {
         py={2}
         as={Link}
         href={href ?? "#"}
+        isExternal={isExternal ?? false}
         justify={"space-between"}
         align={"center"}
         _hover={{
