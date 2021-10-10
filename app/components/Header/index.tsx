@@ -31,6 +31,7 @@ import { useWeb3 } from "../../utils/web3Context";
 import { getAccountIcon } from "../../utils";
 
 import Banner from "../Banner";
+import AddressButton from "./AddressButton";
 
 export const Header = () => {
   const { isOpen: isMobileNavOpen, onToggle } = useDisclosure();
@@ -172,7 +173,8 @@ export const Header = () => {
                       cursor={"pointer"}
                       minW={0}
                     >
-                      <Avatar size={"sm"} src={getAccountIcon(account)} />
+                      {/* <Avatar size={"sm"} src={getAccountIcon(account)} /> */}
+                      <AddressButton address={account} />
                     </MenuButton>
                     <MenuList>
                       <MenuItem
