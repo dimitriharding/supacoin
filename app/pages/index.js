@@ -5,7 +5,6 @@ import {
   useBreakpointValue,
   Link,
   Text,
-  Box,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { SEO } from "../components/SEO";
@@ -17,6 +16,7 @@ import { useNotification } from "../utils/feedback";
 import ConnectButton from "../components/ConnectButton";
 import MintButton from "../components/MintButton";
 import { useWeb3 } from "../utils/web3Context";
+import { getTxUrl } from "../utils";
 
 const Home = () => {
   const {
@@ -66,7 +66,6 @@ const Home = () => {
                   setLoading(true);
                   mintNFT()
                     .then(async (transaction) => {
-                      console.log({ transaction });
                       await transaction.wait();
                       notify({
                         title: "Your Supacoin was successfully minted!",
@@ -75,12 +74,14 @@ const Home = () => {
                             "You can now view your freshly minted Supacoin on
                             Opensea. Sometimes it takes a few minutes to show
                             up.
+                            <br />
+                            See transaction{" "}
                             <Link
                               alignItems="center"
-                              href={mintedTokenLink}
+                              href={getTxUrl(transaction.hash)}
                               isExternal
                             >
-                              {mintedTokenLink}
+                              {getTxUrl(transaction.hash)}
                               <ExternalLinkIcon mx="2px" />
                             </Link>
                           </Text>
@@ -103,7 +104,7 @@ const Home = () => {
             {process.env.NEXT_PUBLIC_OPENSEA_LINK && (
               <Button
                 fontWeight="bold"
-                borderRadius="md"
+                borderRadius="full"
                 size="lg"
                 colorScheme="teal"
                 variant="ghost"

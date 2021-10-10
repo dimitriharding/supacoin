@@ -64,3 +64,6 @@ export const truncateAddress = (
 };
 
 export const isTestMode = process.env.NEXT_PUBLIC_APP_MODE === "test";
+
+export const getTxUrl = (tx: string) =>
+  `https://${isTestMode ? "mumbai." : ""}polygonscan.com/tx/${tx}`;
