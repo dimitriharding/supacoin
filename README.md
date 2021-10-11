@@ -1,5 +1,8 @@
-A Web3 project that's supported by Supabase storage and database.⚡️🪙⚡️
-
+<p align="center">
+    <img src="https://github.com/dimitriharding/supacoin/blob/main/app/public/summary-card.png" alt="Logo" width="100%" height="100%"/>
+  <h3 align="center">Supacoin | Supabase Hackathon 2021 during Hacktoberfest</h3>
+  <p align="center">A Web3 project that's supported by Supabase storage and database.⚡️🪙⚡️</p>
+</p>
 ---
 
 ### Team Members
@@ -9,7 +12,7 @@ A Web3 project that's supported by Supabase storage and database.⚡️🪙⚡�
 Dimitri Harding
 
 - github: dimitriharding
-- twitter: irtimid_harding
+- twitter: [@irtimid_harding](https://twitter.com/irtimid_harding)
 
 ### Demo
 
