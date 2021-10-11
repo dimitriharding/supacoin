@@ -42,3 +42,8 @@ I will be submitting this project is test mode, but that's only because I am not
 Once I get to transfer MATIC to my wallet, I will be able to deploy this NFT project that anyone can use.
 
 It's still works on the testnet, so anyone can play around with it using fake MATIC. [See guides](https://github.com/dimitriharding/supacoin/tree/main/guides)
+
+---
+
+One of the Supacoin that was generated which I think is suparare, if you know, you know. 😉
+![Supacoin #2](https://guywxbvrqiimbwosujbe.supabase.in/storage/v1/object/public/supacoin-prod/images/2.png)
