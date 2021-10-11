@@ -11,7 +11,7 @@ const main = async () => {
     TOKEN_BASE_URI,
     parseInt(GENERATED_TOKENS_COUNT), // convert to int since it was read as a string
     {
-      value: hre.ethers.utils.parseEther("0.001"),
+      gasLimit: 400000,
     }
   );
   await nftContract.deployed();

@@ -15,6 +15,8 @@ Dimitri Harding
 
 ---
 
+[Loom video](https://www.loom.com/share/19d99413714546d09e5685094652a37d)
+
 ### How was Supabase used
 
 ---
