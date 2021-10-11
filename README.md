@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/dimitriharding/supacoin/blob/main/app/public/summary-card.png" alt="Logo" width="100%" height="100%"/>
+    <img src="https://github.com/dimitriharding/supacoin/blob/main/app/public/supacoin-flip.gif" alt="Coin Flip" width="100%" height="100%"/>
   <h3 align="center">Supacoin | Supabase Hackathon 2021 during Hacktoberfest</h3>
   <p align="center">A Web3 project that's supported by Supabase storage and database.⚡️🪙⚡️</p>
 </p>
@@ -36,9 +36,9 @@ It involves real money, and the Ethereum network gas fees are very high.
 
 I wanted to see what it would take to create a production-ready NFT project from generating my own art,
 storing my own assets, deploying on the Polygon network (lower gas fees),
-and creating dApp that curious individual can use to mint one of the free Supabase inspired NFTs.
+and creating dApp that curious individuals can use to mint one of the free Supabase inspired NFTs.
 
-I will be submitting this project isn test mode, but that's only because I am not able to deploy my smart contract to Production in time before the hackathon ends.
+I will be submitting this project is test mode, but that's only because I am not able to deploy my smart contract to Production in time before the hackathon ends.
 Once I get to transfer MATIC to my wallet, I will be able to deploy this NFT project that anyone can use.
 
-It's still works on the testnet, so anyone can play around with it using fake MATIC
+It's still works on the testnet, so anyone can play around with it using fake MATIC. [See guides](https://github.com/dimitriharding/supacoin/tree/main/guides)
