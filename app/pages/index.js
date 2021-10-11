@@ -36,7 +36,11 @@ const Home = () => {
 
   return (
     <>
-      <SEO />
+      <SEO
+        twitterTitle="Supacoin | Hacktoberfest 2021 - Supabase Hackathon"
+        twitterDescription="Supacoin is a collection of swaggable NFTs that are inspired by Supabase and tools around it!"
+        twitterImage="/summary-card.png"
+      />
       <Hero animate={loading} mintedTokenLink={mintedTokenLink}>
         <div>
           <Stack
